@@ -14,13 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return "XII RPL 4";
 });
-Route::get('/search', function () {
-    return view('search');
-});
-
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/me', 'AuthController@me');
 
