@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use JWTAuth;
 
 class BookController extends Controller
 {
@@ -21,6 +22,9 @@ class BookController extends Controller
         }else{
             return response(['message'=> 'Data not found.', 'data'=> null], 404);
         }
+    }
+    public function __construct() {
+        $this->middleware('auth:api');
     }
 
     /**
@@ -82,7 +86,7 @@ class BookController extends Controller
             return response(['message'=> 'Update data failed.', 'data'=> null], 406);
         }
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
